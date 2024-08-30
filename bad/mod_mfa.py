@@ -26,7 +26,7 @@ def do_mfa_view():
         img = qrcode.make(secret_url)
 
         buffered = BytesIO()
-        img.save(buffered, format="PNG")
+        img.save(buffered, kind="PNG")
         img_str = base64.b64encode(buffered.getvalue()).decode()
 
         return render_template('mfa.enable.html', secret_url=secret_url, img_str=img_str)
